@@ -16,13 +16,28 @@
     <div id="root"></div>
     <script type="text/babel">
         (() => {
-            const name = 'taguchi'
+            function Counter(eprops){
+                function countUp(e, color) {
+                    e.preventDefault();
+                    alert(color);
+                }
+
+                return (
+                    <li style={{backgroundColor:props.color}}>
+                        <a href="#" onClick={e => countUp(e, props.color)}>
+                        0
+                        </a>
+                    </li> 
+                );
+            }
 
             ReactDOM.render(
-                <div>
-                    <p>Hello!</p>
-                    <hr/>
-                    <p>Hello!</p>
+                <div className="container">
+                    <ul>
+                        <Counter color="tomato"/>
+                        <Counter color="skyblue"/>
+                        <Counter color="limegreen"/>
+                    </ul>
                 </div>,
                 document.getElementById('root')
             );
